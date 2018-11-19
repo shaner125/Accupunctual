@@ -51,14 +51,14 @@
                 android:id="@+id/password"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:hint="@string/hint_password"
                 android:inputType="textPassword"
-                app:backgroundTint="@color/accutextcolor"
                 android:textColor="@color/accutextcolor"
                 android:textColorHighlight="@color/accutextcolor"
                 android:textColorHint="@color/accutextcolor"
-                android:textColorLink="@color/accutextcolor" />
+                android:textColorLink="@color/accutextcolor"
+                app:backgroundTint="@color/accutextcolor" />
         </android.support.design.widget.TextInputLayout>
 
         <!-- Login Button -->
@@ -67,7 +67,7 @@
             android:id="@+id/btn_login"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dip"
+            android:layout_marginTop="10dip"
             android:background="@color/accutextcolor"
             android:text="@string/btn_login"
             android:textColor="@color/white" />
