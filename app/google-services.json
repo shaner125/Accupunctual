@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "304627988847",
+    "firebase_url": "https://accupunctual.firebaseio.com",
+    "project_id": "accupunctual",
+    "storage_bucket": "accupunctual.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304627988847:android:aed007ebe5045283",
+        "android_client_info": {
+          "package_name": "com.example.x15745561.accupunctual"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304627988847-3iau3a1qc455jc99qcl31j4s3j6828p6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcSt5XjPaMji4wwmkBr9eivDbn10tnoFw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
