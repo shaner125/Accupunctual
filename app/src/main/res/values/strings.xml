@@ -30,4 +30,18 @@
     <string name="btn_sign_out">Sign Out</string>
     <string name="lbl_forgot_password">Forgot password?</string>
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
+
+    <string name="btn_add">Add Workplace</string>
+    <string name="btn_join">Join Workplace</string>
+    <string name="btn_viewWorkplaces">View My Workplaces</string>
+    <string name="btn_logout">Sign out</string>
+    <string name="btn_saveWorkplace">Save Workplace</string>
+    <string name="btn_joinWorkplace">Join Workplace</string>
+
+    <string name="hint_workplace">Workplace Name</string>
+    <string name="hint_address1">Address line 1</string>
+    <string name="hint_address2">Address line 2</string>
+    <string name="hint_city">City</string>
+    <string name="hint_joinPass">Workplace pass key</string>
+
 </resources>

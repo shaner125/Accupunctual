@@ -7,6 +7,9 @@
     android:fitsSystemWindows="true"
     tools:context="com.example.x15745561.accupunctual.LoginActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -95,6 +98,7 @@
             android:textColor="@color/accutextcolor"
             android:textSize="15dp" />
     </LinearLayout>
+    </ScrollView>
 
     <ProgressBar
         android:id="@+id/progressBar"
