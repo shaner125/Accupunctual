@@ -10,8 +10,15 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent();
+        intent.setClass(SplashActivity.this, LoginActivity.class);
         startActivity(intent);
-        finish();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
+
+//        super.onCreate(savedInstanceState);
+//        Intent intent = new Intent(this, LoginActivity.class);
+//        startActivity(intent);
+//        finish();
     }
 }
