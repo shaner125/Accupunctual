@@ -20,20 +20,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
-            android:windowSoftInputMode="stateHidden"/>
-
-        <activity android:name=".SignupActivity"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".LoginActivity"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".ResetPasswordActivity"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".MyWorkplaces"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".AddWorkplace"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".JoinWorkplace" android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".SignupActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".LoginActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ResetPasswordActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".MyWorkplaces"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".AddWorkplace"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".JoinWorkplace"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".ViewWorkplaces" />
+        <activity android:name=".Workplace"></activity>
     </application>
 
 </manifest>

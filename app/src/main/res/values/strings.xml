@@ -2,6 +2,7 @@
     <string name="app_name">Accupunctual</string>
 
     <string name="action_sign_in_short">Register</string>
+    <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
     <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
@@ -37,6 +38,8 @@
     <string name="btn_logout">Sign out</string>
     <string name="btn_saveWorkplace">Save Workplace</string>
     <string name="btn_joinWorkplace">Join Workplace</string>
+    <string name="btn_clockin">Clock in</string>
+    <string name="btn_clockout">Clock out</string>
 
     <string name="hint_workplace">Workplace Name</string>
     <string name="hint_address1">Address line 1</string>

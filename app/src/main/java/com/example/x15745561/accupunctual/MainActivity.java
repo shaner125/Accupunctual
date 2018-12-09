@@ -9,12 +9,14 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
     private ProgressBar progressBar;
     private Button btnAdd, btnJoin, btnLogout, btnViewWorkplace;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
