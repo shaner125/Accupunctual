@@ -49,14 +49,14 @@ public class AddWorkplace extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-        current_user_db.child("name").addValueEventListener(new ValueEventListener() {
+        current_user_db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 try {
-                    if (snapshot.getValue() != null) {
+                    if (snapshot.child("name").getValue() != null) {
                         try {
                             Log.e("TAG", "" + snapshot.getValue()); // your name values you will get here
-                            name = snapshot.getValue().toString();
+                            name = snapshot.child("name").getValue().toString();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -79,8 +79,8 @@ public class AddWorkplace extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                final String workPlaceName = inputWorkplaceName.getText().toString().trim();
-                final String workplaceKey = inputWorkplaceKey.getText().toString().trim();
+                final String workPlaceName = inputWorkplaceName.getText().toString().trim().toLowerCase();
+                final String workplaceKey = inputWorkplaceKey.getText().toString().trim().toLowerCase();
                 final String addr1 = inputAddr1.getText().toString().trim();
                 final String addr2 = inputAddr2.getText().toString().trim();
                 final String city = inputCity.getText().toString().trim();
@@ -110,16 +110,18 @@ public class AddWorkplace extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "WorkplaceKey must have at least 3 characters!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                Toast.makeText(getApplicationContext(), "Workplace has been added successfully!", Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.VISIBLE);
 
                                 DatabaseReference current_workplace_db = mDatabase.child("Workplaces").child(workPlaceName);
+                                current_user_db.child("Workplaces").child(workPlaceName).setValue(true);
                                 current_workplace_db.child("WorkplaceKey").setValue(workplaceKey);
-                                current_workplace_db.child("Managers").child(name).setValue(true);
+                                current_workplace_db.child("Staff").child("Managers").child(name).setValue(true);
                                 current_workplace_db.child("addr1").setValue(addr1);
                                 current_workplace_db.child("addr2").setValue(addr2);
                                 current_workplace_db.child("city").setValue(city);
                                 progressBar.setVisibility(View.GONE);
+
                                 finish();
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
