@@ -40,6 +40,9 @@
     <string name="btn_joinWorkplace">Join Workplace</string>
     <string name="btn_clockin">Clock in</string>
     <string name="btn_clockout">Clock out</string>
+    <string name="btn_management">Current Staff Status</string>
+    <string name="add_task_button">Add Task</string>
+
 
     <string name="hint_workplace">Workplace Name</string>
     <string name="hint_address1">Address line 1</string>

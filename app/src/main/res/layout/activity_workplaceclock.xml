@@ -23,8 +23,17 @@
                 android:layout_width="@dimen/logo_w"
                 android:layout_height="@dimen/logo_h"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="5dp"
                 android:src="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/workplace_title_id"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textAllCaps="true"
+                android:textColor="@color/accutextcolor"
+                android:textSize="20dp"
+                android:text="Placeholder" />
 
             <Button
                 android:id="@+id/btn_clockin"
@@ -42,6 +51,25 @@
                 android:layout_marginTop="10dip"
                 android:background="@color/accutextcolor"
                 android:text="@string/btn_clockout"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btn_management"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:background="@color/accutextcolor"
+                android:text="@string/btn_management"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:layout_alignParentBottom="true"
+                android:background="@color/accutextcolor"
+                android:text="@string/btn_back"
                 android:textColor="@color/white" />
 
 

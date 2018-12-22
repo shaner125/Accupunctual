@@ -41,8 +41,10 @@
         <activity
             android:name=".JoinWorkplace"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".ViewWorkplaces" />
-        <activity android:name=".Workplace"></activity>
+        <activity android:name=".ViewWorkplaces"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".Workplaceclock"
+            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>

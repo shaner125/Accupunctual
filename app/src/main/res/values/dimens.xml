@@ -5,4 +5,12 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="logo_w">400dp</dimen>
     <dimen name="logo_h">300dp</dimen>
+    <dimen name="icon_w">200dp</dimen>
+    <dimen name="icon_h">150dp</dimen>
+    <dimen name="card_margin">16dp</dimen>
+    <dimen name="card_album_radius">400dp</dimen>
+    <dimen name="card_title_padding">16dp</dimen>
+    <dimen name="card_title">20dp</dimen>
+    <dimen name="card_padding_bottom">14</dimen>
+    <dimen name="card_content">14dp</dimen>
 </resources>

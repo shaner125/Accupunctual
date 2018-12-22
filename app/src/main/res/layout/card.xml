@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/post_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icon" />
+
+        <TextView
+            android:id="@+id/workplace_title_txtview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@id/post_image"
+            android:text="Post Title"
+            android:textColor="@color/accutextcolor"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/workplace_addr1_txtview"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@id/post_image"
+            android:layout_below="@id/workplace_title_txtview"
+            android:text="Post Description"
+            android:textColor="@color/accutextcolor" />
+    </RelativeLayout>
+    </android.support.v7.widget.CardView>
