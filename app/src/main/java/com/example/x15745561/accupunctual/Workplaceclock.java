@@ -15,6 +15,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import android.content.res.Configuration;
+import java.util.Locale;
 
 import org.w3c.dom.Text;
 
@@ -36,7 +38,7 @@ public class Workplaceclock extends AppCompatActivity {
         setContentView(R.layout.activity_workplaceclock);
         title = (TextView) findViewById(R.id.workplace_title_id);
         auth = FirebaseAuth.getInstance();
-        
+
         btnBack = (Button) findViewById(R.id.btn_back);
         btnClockIn = (Button) findViewById(R.id.btn_clockin);
         btnClockOut = (Button) findViewById(R.id.btn_clockout);
@@ -58,6 +60,10 @@ public class Workplaceclock extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 try {
+                    if(snapshot.child("clockedin").child(name).exists()){
+                        btnClockIn.setVisibility(View.GONE);
+                        btnClockOut.setVisibility(View.VISIBLE);
+                    }
                     if (snapshot.child("Staff").child("Managers").child(name).exists()) {
                         btnManagement.setVisibility(View.VISIBLE);
                     } else {
@@ -101,6 +107,17 @@ public class Workplaceclock extends AppCompatActivity {
                 current_workplace_db.child("clockedout").child(name).setValue(mdformat.format(calendar.getTime()));
                 btnClockOut.setVisibility(View.GONE);
                 btnClockIn.setVisibility(View.VISIBLE);
+            }
+        });
+
+        btnManagement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentBundle = new Intent(v.getContext(),managementActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("workplaceName", workplaceName);
+                intentBundle.putExtras(bundle);
+                v.getContext().startActivity(intentBundle);
             }
         });
     }

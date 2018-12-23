@@ -9,8 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.content.res.Configuration;
-import java.util.Locale;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,24 +16,28 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import android.content.res.Configuration;
+import java.util.Locale;
 
-public class ViewWorkplaces extends AppCompatActivity {
+public class managementActivity extends AppCompatActivity {
 
     //a list to store all the products
-    List<Workplace> workplaceList = new ArrayList();
+    List<User> userList = new ArrayList();
 
     //the recyclerview
     RecyclerView recyclerView;
     private Button btnBack;
     private DatabaseReference current_workplace_db ;
-    private String username;
+    private String workplaceName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_workplaces);
+        setContentView(R.layout.activity_management);
 
         btnBack = (Button) findViewById(R.id.btn_back);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
@@ -44,9 +46,9 @@ public class ViewWorkplaces extends AppCompatActivity {
         Intent intentExtras = getIntent();
         Bundle extrasBundle = intentExtras.getExtras();
         if(!extrasBundle.isEmpty()){
-            username = extrasBundle.getString("name");
+            workplaceName = extrasBundle.getString("workplaceName");
         }
-        final WorkPlaceAdapter adapter = new WorkPlaceAdapter(this, workplaceList, username);
+        final UserClockAdapter adapter = new UserClockAdapter(this, userList);
 
         //setting adapter to recyclerview
         recyclerView.setAdapter(adapter);
@@ -54,21 +56,41 @@ public class ViewWorkplaces extends AppCompatActivity {
 
         //initializing the productlist
 
-        current_workplace_db = FirebaseDatabase.getInstance().getReference().child("Data").child("Workplaces");
+        current_workplace_db = FirebaseDatabase.getInstance().getReference().child("Data").child("Workplaces").child(workplaceName);
         current_workplace_db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 try {
                     if (snapshot.getValue() != null) {
                         try {
-                            workplaceList.clear();
+                            userList.clear();
                             Log.e("TAG", "" + snapshot.getValue()); // your name values you will get here
-                            for (DataSnapshot child : snapshot.getChildren()) {
-                                if((child.child("Staff").child("Managers").child(username).exists()) || (child.child("Staff").child("general").child(username).exists())){
-                                    Workplace tmpWorkplace = new Workplace(child.getKey(), child.child("addr1").getValue().toString());
-                                    workplaceList.add(tmpWorkplace);
+                            if(snapshot.child("clockedin").exists()){
+                            for (DataSnapshot child : snapshot.child("clockedin").getChildren()) {
+                                Log.e("TAG", "GKJHLSGHFKJDSGHFJD");
+                                Calendar calendar = Calendar.getInstance();
+                                SimpleDateFormat mdformat = new SimpleDateFormat("HH:mm:ss");
+                                User tmpUser = new User(child.getKey(),"Clocked In", mdformat.format(calendar.getTime()));
+
+                                if(!userList.isEmpty()){
+                                    userList.add(0,tmpUser);
                                     adapter.notifyDataSetChanged();
-                                    Log.e("TAG", "" + child.getValue());
+                                    Log.e("TAG", "GKJHLSGHFKJDSGHFJD");
+                                }
+                                else {
+                                    userList.add(tmpUser);
+                                    adapter.notifyDataSetChanged();
+                                    Log.e("TAG", "SCHMOOLI");
+                                }
+                                }
+                            }
+                            else if(snapshot.child("clockedout").exists()){
+                                for (DataSnapshot child : snapshot.child("clockedout").getChildren()) {
+                                    Calendar calendar = Calendar.getInstance();
+                                    SimpleDateFormat mdformat = new SimpleDateFormat("HH:mm:ss");
+                                    User tmpUser = new User(child.getKey(),"Clocked Out", mdformat.format(calendar.getTime()));
+                                    userList.add(tmpUser);
+                                    adapter.notifyDataSetChanged();
                                 }
                             }
 

@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import android.content.res.Configuration;
+import java.util.Locale;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -91,11 +94,7 @@ public class SignupActivity extends AppCompatActivity {
                         .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                DatabaseReference current_user_db = mDatabase.child(auth.getUid());
-                                current_user_db.child("name").setValue(name);
-                                current_user_db.child("email").setValue(email);
-                                Toast.makeText(SignupActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful()+ " ,"+mDatabase.child("Shane").child("name").toString(), Toast.LENGTH_SHORT).show();
-                                progressBar.setVisibility(View.GONE);
+
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
@@ -103,6 +102,13 @@ public class SignupActivity extends AppCompatActivity {
                                     Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
+                                    String uid = auth.getUid();
+                                    Log.e("TAG", "" + uid);
+                                    DatabaseReference current_user_db = mDatabase.child(uid);
+                                    current_user_db.child("name").setValue(name);
+                                    current_user_db.child("email").setValue(email);
+                                    Toast.makeText(SignupActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful()+ " ,"+mDatabase.child("Shane").child("name").toString(), Toast.LENGTH_SHORT).show();
+                                    progressBar.setVisibility(View.GONE);
                                     startActivity(new Intent(SignupActivity.this, MainActivity.class));
                                     finish();
                                 }

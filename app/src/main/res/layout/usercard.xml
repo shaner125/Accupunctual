@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/user_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/userplaceholder" />
+
+        <TextView
+            android:id="@+id/username_txtview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@id/user_image"
+            android:text="Name Title"
+            android:textColor="@color/accutextcolor"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/userClockStatus_txtview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@id/user_image"
+            android:layout_below="@id/username_txtview"
+            android:text="Clock in status"
+            android:textColor="@color/accutextcolor" />
+        <TextView
+            android:id="@+id/userClocktime_txtview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@id/user_image"
+            android:layout_below="@id/userClockStatus_txtview"
+            android:text="Clock in/out time"
+            android:textColor="@color/accutextcolor" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

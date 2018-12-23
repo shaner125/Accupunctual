@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import android.content.res.Configuration;
+import java.util.Locale;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -120,12 +122,10 @@ public class AddWorkplace extends AppCompatActivity {
                                 current_workplace_db.child("addr1").setValue(addr1);
                                 current_workplace_db.child("addr2").setValue(addr2);
                                 current_workplace_db.child("city").setValue(city);
+                                current_workplace_db.child("clockedout").child(name).setValue("00:00:00");
                                 progressBar.setVisibility(View.GONE);
 
                                 finish();
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
 
                             }
 

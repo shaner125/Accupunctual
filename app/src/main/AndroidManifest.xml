@@ -33,18 +33,18 @@
             android:name=".ResetPasswordActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".MyWorkplaces"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
             android:name=".AddWorkplace"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".JoinWorkplace"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".ViewWorkplaces"
+        <activity
+            android:name=".ViewWorkplaces"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".Workplaceclock"
+        <activity
+            android:name=".Workplaceclock"
             android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".managementActivity"></activity>
     </application>
 
 </manifest>

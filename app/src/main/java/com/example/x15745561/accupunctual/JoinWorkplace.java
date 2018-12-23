@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import android.content.res.Configuration;
+import java.util.Locale;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -94,6 +96,7 @@ public class JoinWorkplace extends AppCompatActivity {
                     if (workPlaces.get(workPlaceName).equals(workplaceKey)){
                         current_user_db.child("Workplaces").child(workPlaceName).setValue(true);
                         current_workplace_db.child("Staff").child("general").child(name).setValue(true);
+                        current_workplace_db.child("clockedout").child(name).setValue("00:00:00");
                         Toast.makeText(getApplicationContext(), "You have joined :"+workPlaceName+"!", Toast.LENGTH_SHORT).show();
                         finish();
                     }

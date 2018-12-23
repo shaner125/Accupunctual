@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.content.res.Configuration;
+import java.util.Locale;
 
 
 import java.util.List;
